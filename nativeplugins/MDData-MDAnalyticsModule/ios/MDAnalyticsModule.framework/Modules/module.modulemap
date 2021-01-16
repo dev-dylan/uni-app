@@ -1,0 +1,6 @@
+framework module MDAnalyticsModule {
+  umbrella header "MDAnalyticsModule.h"
+
+  export *
+  module * { export * }
+}

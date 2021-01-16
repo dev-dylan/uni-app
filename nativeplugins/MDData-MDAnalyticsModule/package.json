@@ -1,0 +1,33 @@
+{
+    "name": "MDAnalyticsModule",
+    "id": "MDData-MDAnalyticsModule",
+    "version": "0.0.5",
+    "description": "数据分析埋点插件",
+    "_dp_type": "nativeplugin",
+    "_dp_nativeplugin": {
+        "ios": {
+            "plugins": [
+                {
+                    "type": "module",
+                    "name": "MDData-MDAnalyticsModule",
+                    "class": "MDAnalyticsModule"
+                }
+            ],
+            "frameworks": [
+                "MapKit.framework"
+            ],
+            "integrateType": "framework",
+            "deploymentTarget": "9.0",
+			"parameters": {
+			  "server_url": {
+			    "des": "数据上报地址",
+			    "key": "MDAnalyticsModule:serverUrl"
+			  },
+			  "show_log": {
+			    "des": "设置是否开启 log，true：开启，false：不开启，默认 false",
+			    "key": "MDAnalyticsModule:enableLog"
+			  }
+			}
+        }
+    }
+}
