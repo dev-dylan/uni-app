@@ -3,12 +3,11 @@
 		<web-view :src="url" @message="getMessage"></web-view>
 	</view>
 </template>
-
 <script>
 	export default {
 		data() {
 			return {
-				url: 'https://uniapp.dcloud.io/static/web-view.html'
+				url: 'https://psyer.gitee.io/src/index.html'
 			}
 		},
 		onLoad(options) {

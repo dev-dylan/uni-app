@@ -77,46 +77,51 @@
                 },
                 "ad" : {}
             },
-            "orientation" : [ "portrait-primary" ]
-        },
-        "nativePlugins" : {
-            "MDData-MDAnalyticsModule" : {
-                "server_url" : "http://newsdktest.datasink.sensorsdata.cn/sa?project=pengyuanyang&token=5a394d2405c147ca",
-                "show_log" : "true",
-                "__plugin_info__" : {
-                    "name" : "MDAnalyticsModule",
-                    "description" : "数据分析埋点插件",
-                    "platforms" : "iOS",
-                    "url" : "",
-                    "android_package_name" : "",
-                    "ios_bundle_id" : "",
-                    "isCloud" : false,
-                    "bought" : -1,
-                    "pid" : "",
-                    "parameters" : {
-                        "server_url" : {
-                            "des" : "数据上报地址",
-                            "key" : "MDAnalyticsModule:serverUrl",
-                            "value" : ""
-                        },
-                        "show_log" : {
-                            "des" : "设置是否开启 log，true：开启，false：不开启，默认 false",
-                            "key" : "MDAnalyticsModule:enableLog",
-                            "value" : ""
-                        }
+            "orientation" : [ "portrait-primary" ],
+            "icons" : {
+                "android" : {
+                    "hdpi" : "unpackage/res/icons/72x72.png",
+                    "xhdpi" : "unpackage/res/icons/96x96.png",
+                    "xxhdpi" : "unpackage/res/icons/144x144.png",
+                    "xxxhdpi" : "unpackage/res/icons/192x192.png"
+                },
+                "ios" : {
+                    "appstore" : "unpackage/res/icons/1024x1024.png",
+                    "ipad" : {
+                        "app" : "unpackage/res/icons/76x76.png",
+                        "app@2x" : "unpackage/res/icons/152x152.png",
+                        "notification" : "unpackage/res/icons/20x20.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "proapp@2x" : "unpackage/res/icons/167x167.png",
+                        "settings" : "unpackage/res/icons/29x29.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "spotlight" : "unpackage/res/icons/40x40.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png"
+                    },
+                    "iphone" : {
+                        "app@2x" : "unpackage/res/icons/120x120.png",
+                        "app@3x" : "unpackage/res/icons/180x180.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "notification@3x" : "unpackage/res/icons/60x60.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "settings@3x" : "unpackage/res/icons/87x87.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png",
+                        "spotlight@3x" : "unpackage/res/icons/120x120.png"
                     }
                 }
-            },
+            }
+        },
+        "nativePlugins" : {
             "Sensorsdata-UniPlugin-App" : {
+                "javascript_bridge" : "true",
+                "show_log" : "true",
+                "android_max_cache_size" : "333444",
+                "data_collect" : "true",
+                "server_url" : "",
+                "encrypt" : "true",
                 "auto_track_type" : "3",
-                "data_collect" : "false",
-                "javascript_bridge" : "false",
-                "android_max_cache_size" : "1231313",
-                "encrypt" : "false",
-                "ios_max_cache_size" : "1231231",
-                "server_url" : "http://newsdktest.datasink.sensorsdata.cn/sa?project=pengyuanyang&token=5a394d2405c147ca",
-                "android_javascript_bridge_support_jellybean" : "false",
-                "show_log" : "false",
+                "android_javascript_bridge_support_jellybean" : "true",
+                "ios_max_cache_size" : "77887",
                 "__plugin_info__" : {
                     "name" : "Sensorsdata-UniPlugin-App",
                     "description" : "插件描述信息",
@@ -128,19 +133,14 @@
                     "bought" : -1,
                     "pid" : "",
                     "parameters" : {
-                        "auto_track_type" : {
-                            "des" : "全埋点采集类型，0：不开启全埋点采集，1：应用启动，2：应用退出，3：应用启动退出，默认 0",
-                            "key" : "Sensorsdata-UniPlugin-App:autoTrackEventType",
-                            "value" : ""
-                        },
-                        "data_collect" : {
-                            "des" : "设置开启数据采集，true：开启，false：不开启，默认 true",
-                            "key" : "SENSORSDATA_UNIPLUGIN_DATACOLLECT",
-                            "value" : ""
-                        },
                         "javascript_bridge" : {
                             "des" : "开启自动打通所有的 WebView H5 功能。true：开启，false：不开启，默认 false",
                             "key" : "Sensorsdata-UniPlugin-App:enableJavaScriptBridge",
+                            "value" : ""
+                        },
+                        "show_log" : {
+                            "des" : "设置是否开启 log，true：开启，false：不开启，默认 false",
+                            "key" : "Sensorsdata-UniPlugin-App:enableLog",
                             "value" : ""
                         },
                         "android_max_cache_size" : {
@@ -148,19 +148,24 @@
                             "key" : "SENSORSDATA_UNIPLUGIN_MAX_CACHE_SIZE",
                             "value" : ""
                         },
+                        "data_collect" : {
+                            "des" : "设置开启数据采集，true：开启，false：不开启，默认 true",
+                            "key" : "SENSORSDATA_UNIPLUGIN_DATACOLLECT",
+                            "value" : ""
+                        },
+                        "server_url" : {
+                            "des" : "数据上报地址",
+                            "key" : "SENSORSDATA_UNIPLUGIN_SERVERURL",
+                            "value" : ""
+                        },
                         "encrypt" : {
                             "des" : "设置是否开启加密，true：开启，false：不开启，默认 false",
                             "key" : "Sensorsdata-UniPlugin-App:enableEncrypt",
                             "value" : ""
                         },
-                        "ios_max_cache_size" : {
-                            "des" : "iOS 设置本地缓存最多事件条数，默认为 10000 条",
-                            "key" : "Sensorsdata-UniPlugin-App:maxCacheSize",
-                            "value" : ""
-                        },
-                        "server_url" : {
-                            "des" : "数据上报地址",
-                            "key" : "Sensorsdata-UniPlugin-App:serverUrl",
+                        "auto_track_type" : {
+                            "des" : "全埋点采集类型，0：不开启全埋点采集，1：应用启动，2：应用退出，3：应用启动退出，默认 0",
+                            "key" : "Sensorsdata-UniPlugin-App:autoTrackEventType",
                             "value" : ""
                         },
                         "android_javascript_bridge_support_jellybean" : {
@@ -168,9 +173,9 @@
                             "key" : "SENSORSDATA_UNIPLUGIN_JSBRIDGE_SUPPORT_JELLYBEAN",
                             "value" : ""
                         },
-                        "show_log" : {
-                            "des" : "设置是否开启 log，true：开启，false：不开启，默认 false",
-                            "key" : "Sensorsdata-UniPlugin-App:enableLog",
+                        "ios_max_cache_size" : {
+                            "des" : "iOS 设置本地缓存最多事件条数，默认为 10000 条",
+                            "key" : "Sensorsdata-UniPlugin-App:maxCacheSize",
                             "value" : ""
                         }
                     }

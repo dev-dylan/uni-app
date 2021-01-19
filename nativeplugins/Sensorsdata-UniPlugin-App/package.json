@@ -72,10 +72,6 @@
       "hooksClass": "UniSensorsAnalyticsProxy",
       "deploymentTarget": "8.0",
       "parameters": {
-        "server_url": {
-          "des": "数据上报地址",
-          "key": "Sensorsdata-UniPlugin-App:serverUrl"
-        },
         "auto_track_type": {
           "des": "全埋点采集类型，0：不开启全埋点采集，1：应用启动，2：应用退出，3：应用启动退出，默认 0",
           "key": "Sensorsdata-UniPlugin-App:autoTrackEventType"

@@ -35,8 +35,9 @@
 	</view>
 </template>
 <script>
+	import sa from '../../../common/js/index.js'
 	var testModule = uni.requireNativePlugin("Sensorsdata-UniPlugin-App");
-
+	
 	export default {
 		data() {
 			return {
@@ -58,85 +59,100 @@
 			this.loading = false;
 		},
 		methods: {
+			// Track
 			track() {
 				console.log("track");
-				testModule.track("testEvent", {
+				sa.track("testEvent", {
 					"testKey": "testValue"
 				});
 			},
 			trackAppInstall() {
 				console.log("trackAppInstall");
-				testModule.trackAppInstall({
+				sa.trackAppInstall({
 					"testInstall": "testInstallValue"
 				});
 			},
 			identify() {
 				console.log("identify");
-				testModule.identify("0000-00000000000000-11111-1111");
+				sa.identify("0000-00000000000000-11111-1111");
 			},
 			login() {
 				console.log("login");
-				testModule.login("newLoginId");
+				sa.login("newLoginId");
 			},
 			logout() {
 				console.log("logout");
-				testModule.logout();
+				sa.logout();
 			},
 			flush() {
 				console.log("flush");
-				testModule.flush();
+				sa.flush();
 			},
+			
+			// Super Properties
 			registerSuperProperties() {
 				console.log("registerSuperProperties");
-				testModule.registerSuperProperties({
+				sa.register({
 					"superKey1": "superValue1",
 					"superKey2": "superValue2"
 				});
 			},
 			unregisterSuperProperty() {
 				console.log("unregisterSuperProperty");
-				testModule.unregisterSuperProperty("superKey2");
+				sa.unRegister("superKey2");
 			},
 			clearSuperProperties() {
 				console.log("clearSuperProperties");
-				testModule.clearSuperProperties();
+				sa.clearRegister();
 			},
+			
+			// Profile_*
 			profileSet() {
 				console.log("profileSet");
-				testModule.profileSet({
+				sa.setProfile({
 					"setKey1": "setValue1",
 					"setKey2": "setValue2"
 				});
 			},
 			profileSetOnce() {
 				console.log("profileSetOnce");
-				testModule.profileSetOnce({
+				sa.setOnceProfile({
 					"setOnceKey1": "setOnceValue1",
 					"setOnceKey2": "setOnceValue2"
 				});
 			},
 			profileIncrement() {
 				console.log("profileIncrement");
-				testModule.profileIncrement({
+				sa.incrementProfile({
 					"incrementKey1": 123,
 					"incrementKey2": 234
 				});
 			},
 			profileAppend() {
 				console.log("profileAppend");
-				testModule.profileAppend("AppendEvent", ["13", "1213"]);
+				sa.appendProfile("AppendEvent", ["13", "1213"]);
 			},
 			profileUnset() {
 				console.log("profileUnset");
-				testModule.profileUnset("setKey2");
+				sa.unsetProfile("setKey2");
 			},
 			profileDelete() {
 				console.log("profileDelete");
-				testModule.profileDelete();
+				sa.deleteProfile();
 			},
+			
+			// Set Properties
 			setServerUrl() {
 				console.log("setServerUrl");
-				testModule.setServerUrl("http://newsdktest.datasink.sensorsdata.cn/sa?project=pengyuanyang&token=5a394d2405c147ca");
+				sa.setPara({
+					server_url: 'http://newsdktest.datasink.sensorsdata.cn/sa?project=pengyuanyang&token=5a394d2405c147ca',
+					show_log: true,
+					app_flush_network_policy: 255,
+					app_flush_interval: 87654888,
+					app_flush_bulkSize: 45677777,
+					app_session_interval_time: 44334443,
+					app_data_collect: true
+				});
 			},
 			enableLog() {
 				console.log("enableLog");
@@ -154,41 +170,45 @@
 				console.log("setFlushBulkSize");
 				testModule.setFlushBulkSize(3000);
 			},
+			
+			// Get Properties
 			getFlushInterval() {
-				var result = testModule.getFlushInterval();
+				var result = sa.getFlushInterval();
 				console.log("getFlushInterval" + result);
 			},
 			getFlushBulkSize() {
-				var result = testModule.getFlushBulkSize();
+				var result = sa.getFlushBulkSize();
 				console.log("getFlushBulkSize" + result);
 			},
 			getPresetProperties() {
-				var result = testModule.getPresetProperties();
+				var result = sa.getPresetProperties();
 				console.log(result);
 			},
 			getDistinctId() {
-				var result = testModule.getDistinctId();
+				var result = sa.getDistinctId();
 				console.log("getDistinctId" + result);
 			},
 			getAnonymousId() {
-				var result = testModule.getAnonymousId();
+				var result = sa.getAnonymousId();
 				console.log("getAnonymousId" + result);
 			},
 			getLoginId() {
-				var result = testModule.getLoginId();
+				var result = sa.getLoginId();
 				console.log("getLoginId" + result);
 			},
+			
+			// Android Only
 			setSessionIntervalTime() {
 				console.log("setSessionIntervalTime");
-				testModule.setSessionIntervalTime();
+				sa.setSessionIntervalTime();
 			},
 			getSessionIntervalTime() {
-				var result = testModule.getSessionIntervalTime();
+				var result = sa.getSessionIntervalTime();
 				console.log("getSessionIntervalTime" + result);
 			},
 			enableDataCollect() {
 				console.log("enableDataCollect");
-				testModule.enableDataCollect();
+				sa.enableDataCollect();
 			},
 			openTypeError(error) {
 				console.error('open-type error:', error);
