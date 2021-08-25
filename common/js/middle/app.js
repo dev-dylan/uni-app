@@ -21,11 +21,16 @@ let sa = {
 		};
 		Object.keys(para).forEach(
 			(key) => {
-				// 如果
 				if (key in relation && typeof sensors[relation[key]] === 'function') {
-					sensors[relation[key]].call(sensors, para[key]);
+					if(key === 'app_data_collect'){
+						if(para[key] === true){
+						  sensors[relation[key]].call(sensors, para[key]);							
+						}
+					}else{
+						sensors[relation[key]].call(sensors, para[key]);
+					}					
 				} else {
-					console.log('setPara 在 App 中不支持此方法');
+					console.log('setPara 在 App 中不支持设置' + key );
 				}
 
 			}
@@ -33,6 +38,13 @@ let sa = {
 
 
 	},
+
+	// app专用的方法
+	getAppFlushInterval: sensors.getFlushInterval.bind(sensors),
+	getAppFlushBulkSize: sensors.getFlushBulkSize.bind(sensors),
+	getAppSessionIntervalTime: sensors.getSessionIntervalTime.bind(sensors),
+	trackAppInstall: sensors.trackAppInstall.bind(sensors),
+	appFlush: sensors.flush.bind(sensors),
 
 	register: sensors.registerSuperProperties.bind(sensors),
 	unRegister: sensors.unregisterSuperProperty.bind(sensors),

@@ -85,6 +85,12 @@
 			}
 		},
 		{
+			"path": "pages/component/alert/alert",
+			"style": {
+				"navigationBarTitleText": "alert"
+			}
+		},
+		{
 			"path": "pages/component/view/view",
 			"style": {
 				"navigationBarTitleText": "view"

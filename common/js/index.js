@@ -14,8 +14,26 @@ import bridgeAPI from './middle/app.js'
 import bridgeAPI from './middle/web.js'
 // #endif
 
+// #ifdef MP-WEIXIN
+import bridgeAPI from './middle/weixin.js';
+// #endif
+
+// #ifdef MP-ALIPAY
+import bridgeAPI from './middle/alipay.js';
+// #endif
+
+// #ifdef MP-BAIDU	
+import bridgeAPI from './middle/baidu.js';
+// #endif
+
+// #ifdef MP-TOUTIAO	
+import bridgeAPI from './middle/toutiao.js';
+// #endif
+
+
 let sa = {};
 
+let lib_plugin_track_timer = 0;
 
 //检查是否是支持的平台，如果不支持就使用commonAPI
 if (typeof bridgeAPI === 'undefined') {
@@ -36,6 +54,24 @@ if (typeof bridgeAPI === 'undefined') {
 				sa[key] = commonAPI[key].bind(commonAPI);
 			}
 		}
+		// 如果是track，先加属性
+		if (key === 'track') {
+			let oldTrack = sa.track;
+			sa.track = function() {
+				let arr = [].slice.call(arguments, 0);
+				if (++lib_plugin_track_timer === 1) {
+					if (typeof arr[1] === 'object' && arr[1] !== null) {
+						arr[1]['$lib_plugin_version'] = ['js_uniapp:0.0.1'];
+					} else {
+						arr[1] = {
+							$lib_plugin_version: ['js_uniapp:0.0.1']
+						};
+					}
+				}
+				return oldTrack.apply(sa, arr);
+			};
+		}
+
 	});
 
 }

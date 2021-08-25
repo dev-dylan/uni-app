@@ -44,7 +44,8 @@
 						name: '神策分析插件',
 						open: true,
 						pages: [
-							'analytics'
+							'analytics',
+							'alert'
 						]
 					}, {
 						id: 'view',
